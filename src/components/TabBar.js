@@ -1,3 +1,4 @@
+/* @flow */
 import React, {PropTypes} from 'react';
 import TabBarButton from '../components/TabBarButton';
 

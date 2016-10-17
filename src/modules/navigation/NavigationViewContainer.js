@@ -1,9 +1,10 @@
+/* @flow */
 import {connect} from 'react-redux';
-import {pushRoute, popRoute, switchTab, navigationCompleted} from './NavigationState';
+import {pushRoute, popRoute, switchTab} from './NavigationState';
 import NavigationView from './NavigationView';
 
 export default connect(
-  state => ({
+  (state: Object) => ({
     navigationState: state.get('navigationState').toJS()
   }),
   dispatch => ({
@@ -15,9 +16,6 @@ export default connect(
     },
     onNavigateBack() {
       dispatch(popRoute());
-    },
-    onNavigateCompleted() {
-      dispatch(navigationCompleted());
     }
   })
 )(NavigationView);

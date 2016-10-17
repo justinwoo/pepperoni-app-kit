@@ -1,3 +1,4 @@
+/* @flow */
 import * as CounterState from './CounterState';
 import * as NavigationState from '../../modules/navigation/NavigationState';
 import React, {PropTypes} from 'react';

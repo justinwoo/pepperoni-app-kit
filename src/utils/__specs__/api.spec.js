@@ -1,3 +1,4 @@
+/* @flow */
 /*eslint-disable max-nested-callbacks, no-unused-expressions*/
 
 import fetch from 'fetch-mock';
@@ -64,17 +65,21 @@ describe('API', () => {
       it('should throw when endpoint returns HTTP 4xx error', async () => {
         const error = await getError(() => apiMethod(ERROR_ENDPOINT));
         expect(error instanceof HttpError).toBe(true);
-        expect(error.code).toBe(400);
-        expect(error.message).toBe('You did bad.');
-        expect(fetch.called()).toBe(true);
+        if (error) {
+          expect(error.code).toBe(400);
+          expect(error.message).toBe('You did bad.');
+          expect(fetch.called()).toBe(true);
+        }
       });
 
       it('should throw when server returns a HTTP 5xx error', async () => {
         const error = await getError(() => apiMethod(FAILING_ENDPOINT));
         expect(error instanceof HttpError).toBe(true);
-        expect(error.code).toBe(500);
-        expect(error.message).toBe('Internal Server Error');
-        expect(fetch.called()).toBe(true);
+        if (error) {
+          expect(error.code).toBe(500);
+          expect(error.message).toBe('Internal Server Error');
+          expect(fetch.called()).toBe(true);
+        }
       });
     });
   }

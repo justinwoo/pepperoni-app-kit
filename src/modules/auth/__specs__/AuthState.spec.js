@@ -1,3 +1,4 @@
+/* @flow */
 /*eslint-disable max-nested-callbacks, no-unused-expressions*/
 
 import {initialState, dispatch} from '../../../../test/state';

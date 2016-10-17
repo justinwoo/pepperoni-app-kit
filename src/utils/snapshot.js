@@ -1,3 +1,4 @@
+/* @flow */
 import {AsyncStorage} from 'react-native';
 import {fromJS} from 'immutable';
 const STATE_STORAGE_KEY = 'PepperoniAppTemplateAppState:Latest';
@@ -11,7 +12,7 @@ export async function resetSnapshot() {
   return null;
 }
 
-export async function saveSnapshot(state) {
+export async function saveSnapshot(state: Object) {
   await persist(state.toJS());
 }
 

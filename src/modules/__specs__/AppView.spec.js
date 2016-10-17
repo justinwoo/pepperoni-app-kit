@@ -1,3 +1,4 @@
+/* @flow */
 /*eslint-disable max-nested-callbacks*/
 
 import React from 'react';

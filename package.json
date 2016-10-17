@@ -39,7 +39,7 @@
     "react": "^15.3.2",
     "react-dom": "~15.2.0",
     "react-native": "^0.35.0",
-    "react-native-lock": "futurice/react-native-lock#feature/customizedTheme",
+    "react-native-lock": "justinwoo/react-native-lock#feature-customized-theme",
     "react-redux": "^4.4.5",
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",

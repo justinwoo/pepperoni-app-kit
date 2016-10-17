@@ -1,3 +1,4 @@
+/* @flow */
 import Promise from 'bluebird';
 import HttpError from 'standard-http-error';
 import {getConfiguration} from '../utils/configuration';
@@ -18,7 +19,7 @@ export const errors = new EventEmitter();
  * @param {Boolean} suppressRedBox If true, no warning is shown on failed request
  * @returns {Promise} of response body
  */
-export async function get(path, suppressRedBox) {
+export async function get(path: string, suppressRedBox: ?boolean) {
   return bodyOf(request('get', path, null, suppressRedBox));
 }
 
@@ -29,7 +30,7 @@ export async function get(path, suppressRedBox) {
  * @param {Boolean} suppressRedBox If true, no warning is shown on failed request
  * @returns {Promise}  of response body
  */
-export async function post(path, body, suppressRedBox) {
+export async function post(path: string, body: mixed, suppressRedBox: ?boolean) {
   return bodyOf(request('post', path, body, suppressRedBox));
 }
 
@@ -40,7 +41,7 @@ export async function post(path, body, suppressRedBox) {
  * @param {Boolean} suppressRedBox If true, no warning is shown on failed request
  * @returns {Promise}  of response body
  */
-export async function put(path, body, suppressRedBox) {
+export async function put(path: string, body: mixed, suppressRedBox: ?boolean) {
   return bodyOf(request('put', path, body, suppressRedBox));
 }
 
@@ -50,7 +51,7 @@ export async function put(path, body, suppressRedBox) {
  * @param {Boolean} suppressRedBox If true, no warning is shown on failed request
  * @returns {Promise}  of response body
  */
-export async function del(path, suppressRedBox) {
+export async function del(path: string, suppressRedBox: ?boolean) {
   return bodyOf(request('delete', path, null, suppressRedBox));
 }
 
@@ -61,7 +62,7 @@ export async function del(path, suppressRedBox) {
  * @param {Object} body Anything that you can pass to JSON.stringify
  * @param {Boolean} suppressRedBox If true, no warning is shown on failed request
  */
-export async function request(method, path, body, suppressRedBox) {
+export async function request(method: 'get' | 'post' | 'put' | 'delete', path: string, body: mixed, suppressRedBox: ?boolean) {
   try {
     const response = await sendRequest(method, path, body, suppressRedBox);
     return handleResponse(
@@ -80,7 +81,7 @@ export async function request(method, path, body, suppressRedBox) {
 /**
  * Takes a relative path and makes it a full URL to API server
  */
-export function url(path) {
+export function url(path: string) {
   const apiRoot = getConfiguration('API_ROOT');
   return path.indexOf('/') === 0
     ? apiRoot + path

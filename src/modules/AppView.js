@@ -1,3 +1,4 @@
+/* @flow */
 import React, {PropTypes} from 'react';
 import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import NavigationViewContainer from './navigation/NavigationViewContainer';
@@ -30,7 +31,7 @@ const AppView = React.createClass({
       });
   },
 
-  componentWillReceiveProps({isReady, isLoggedIn}) {
+  componentWillReceiveProps({isReady, isLoggedIn}: Object) {
     if (!this.props.isReady) {
       if (isReady && !isLoggedIn) {
         auth0.showLogin();

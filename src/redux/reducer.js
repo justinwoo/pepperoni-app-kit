@@ -1,3 +1,4 @@
+/* @flow */
 import {Map, fromJS} from 'immutable';
 import {loop, combineReducers} from 'redux-loop';
 import NavigationStateReducer from '../modules/navigation/NavigationState';
@@ -33,7 +34,7 @@ const namespacedReducer = combineReducers(
   setImmutable
 );
 
-export default function mainReducer(state, action) {
+export default function mainReducer(state: Object, action: Object) {
   const [nextState, effects] = action.type === RESET_STATE
     ? namespacedReducer(action.payload.state, action)
     : namespacedReducer(state || void 0, action);

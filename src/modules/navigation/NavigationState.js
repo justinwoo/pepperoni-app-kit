@@ -1,3 +1,4 @@
+/* @flow */
 import {fromJS} from 'immutable';
 
 import {NavigationExperimental} from 'react-native';
@@ -9,7 +10,7 @@ const PUSH_ROUTE = 'NavigationState/PUSH_ROUTE';
 const POP_ROUTE = 'NavigationState/POP_ROUTE';
 const SWITCH_TAB = 'NavigationState/SWITCH_TAB';
 
-export function switchTab(index) {
+export function switchTab(index: any) {
   return {
     type: SWITCH_TAB,
     payload: index
@@ -17,7 +18,7 @@ export function switchTab(index) {
 }
 
 // Action creators
-export function pushRoute(route) {
+export function pushRoute(route: any) {
   return {
     type: PUSH_ROUTE,
     payload: route
@@ -49,7 +50,7 @@ const initialState = fromJS({
   }
 });
 
-export default function NavigationReducer(state = initialState, action) {
+export default function NavigationReducer(state: Object = initialState, action: Object) {
   switch (action.type) {
     case PUSH_ROUTE: {
       // Push a route into the scenes stack.

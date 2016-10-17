@@ -1,3 +1,4 @@
+/* @flow */
 import {applyMiddleware, createStore, compose} from 'redux';
 import * as reduxLoop from 'redux-loop';
 
@@ -6,7 +7,7 @@ import reducer from './reducer';
 
 const enhancer = compose(
   applyMiddleware(...middleware),
-  reduxLoop.install()
+  (reduxLoop: Object).install()
 );
 
 // create the store

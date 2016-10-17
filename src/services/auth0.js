@@ -1,3 +1,4 @@
+/* @flow */
 import * as env from '../../env';
 import Auth0Lock from 'react-native-lock';
 import * as AuthStateActions from '../modules/auth/AuthState';
@@ -26,6 +27,11 @@ export function showLogin() {
   const options = {
     closable: true
   };
+
+  if (!lock) {
+    console.warn('Authentication not enabled: showLogin will not dispatch anything');
+    return;
+  }
 
   if (Platform.OS === 'ios') {
     lock.customizeTheme({

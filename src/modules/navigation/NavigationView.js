@@ -1,3 +1,4 @@
+/* @flow */
 import React, {PropTypes} from 'react';
 import {
   NavigationExperimental,
@@ -32,7 +33,7 @@ const NavigationView = React.createClass({
   },
   // NavigationHeader accepts a prop style
   // NavigationHeader.title accepts a prop textStyle
-  renderHeader(sceneProps) {
+  renderHeader(sceneProps: Object) {
     return (
       <NavigationHeader
         {...sceneProps}
@@ -47,7 +48,7 @@ const NavigationView = React.createClass({
       />
     );
   },
-  renderScene(sceneProps) {
+  renderScene(sceneProps: Object) {
     // render scene and apply padding to cover
     // for app bar and navigation bar
     return (
@@ -57,6 +58,9 @@ const NavigationView = React.createClass({
     );
   },
   render() {
+    if (!this.props.navigationState) {
+      return null;
+    }
     const {tabs} = this.props.navigationState;
     const tabKey = tabs.routes[tabs.index].key;
     const scenes = this.props.navigationState[tabKey];

@@ -1,3 +1,4 @@
+/* @flow */
 import {Map, fromJS} from 'immutable';
 
 // Initial state
@@ -11,7 +12,7 @@ const initialState = Map({
 const USER_LOGIN_SUCCESS = 'AppState/USER_LOGIN_SUCCESS';
 const USER_LOGIN_ERROR = 'AppState/USER_LOGIN_ERROR';
 
-export function onUserLoginSuccess(profile, token) {
+export function onUserLoginSuccess(profile: any, token: any) {
   return {
     type: USER_LOGIN_SUCCESS,
     payload: {
@@ -21,7 +22,7 @@ export function onUserLoginSuccess(profile, token) {
   };
 }
 
-export function onUserLoginError(error) {
+export function onUserLoginError(error: any) {
   return {
     type: USER_LOGIN_ERROR,
     payload: error,
@@ -30,7 +31,7 @@ export function onUserLoginError(error) {
 }
 
 // Reducer
-export default function AuthStateReducer(state = initialState, action = {}) {
+export default function AuthStateReducer(state: Object = initialState, action: Object = {}) {
   switch (action.type) {
     case USER_LOGIN_SUCCESS:
       return state

@@ -1,3 +1,4 @@
+/* @flow */
 /*eslint-disable react/prop-types*/
 
 import React from 'react';
@@ -7,7 +8,7 @@ import ColorViewContainer from './colors/ColorViewContainer';
 /**
  * AppRouter is responsible for mapping a navigator scene to a view
  */
-export default function AppRouter(props) {
+export default function AppRouter(props: Object) {
   const key = props.scene.route.key;
 
   if (key === 'Counter') {
